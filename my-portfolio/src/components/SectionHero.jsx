@@ -35,17 +35,17 @@ function SectionHero() {
 
             <div className='w-full lg:w-1/2'>
                 <motion.div initial="hidden" animate="visible" variants={containerVariants}
-                    className='flex flex-col items-center lg:items-start mt-10'>
+                    className='flex flex-col items-center lg:items-start mt-10 p-5'>
                     <motion.h1 variants={itemChildVariants} className='pb-2 text-4xl tracking-tighter lg:text-8xl'>Zakariaa Elabbassi</motion.h1>
                     <motion.span variants={itemChildVariants} className='bg-gradient-to-r from-stone-300 to-stone-600 bg-clip-text text-3xl tracking-tight text-transparent'>
                         Software Engineer
                     </motion.span>
                     <motion.p variants={itemChildVariants} className='my-2 max-w-lg py-6 text-xl tracking-tighter leading-relaxed'>{HERO_CONTENT}</motion.p>
-                    <motion.a variants={itemChildVariants}  href="/resume.pdf
+                    <motion.a variants={itemChildVariants}  href="/resume.pdf"
                        target='_blank'
                        rel='noopener noreferrer'
-                       download" 
-                       className='bg-gradient-to-r from-stone-300 to-stone-600 text-white tracking-tighter font-semibold py-2 px-4 rounded-full shadow-lg transition duration-300 ease-in-out transform hover:bg-gradient-to-r hover:from-[#000] hover:to-[#4245c4] hover:scale-110 hover:shadow-[0_0_10px_2px_#4245c4]'>
+                    //    download
+                       className='text-white tracking-tighter  font-semibold py-2 px-4 rounded-full  transition duration-300 ease-in-out transform hover:bg-gradient-to-r from-[#000] to-[#4245c4] hover:scale-105 shadow-[0_0_10px_2px_#4245c4]'>
                         Download Resume</motion.a>
                 </motion.div>
             </div>
