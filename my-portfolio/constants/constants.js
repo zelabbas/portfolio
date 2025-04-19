@@ -44,7 +44,7 @@ export const PROJECTS = [
 export const CONTACT = {
   address: "Casablanca, Morocco 🇲🇦",
   phoneNo: "+212 609-900-830",
-  email: "sir-zelabbas@gmail.com",
+  email: "sir.zelabbas@gmail.com",
 };
 
 
