@@ -16,10 +16,10 @@ function Navbar() {
         </div>
 
         <div className="hidden md:flex md:justify-between md:items-center space-x-6 text-white font-medium ">
-            <a href="#technologies" className="hover:text-white hover:shadow-[0_0_15px_3px_#4245c4] transition-all duration-300 border p-2 rounded-xl hover:scale-90">Technologies</a>
-            <a href="#projects" className="hover:text-white hover:shadow-[0_0_15px_3px_#4245c4] transition-all duration-300 border p-2 rounded-xl hover:scale-90">Projects</a>
-            <a href="#education" className="hover:text-white hover:shadow-[0_0_15px_3px_#4245c4] transition-all duration-300 border p-2 rounded-xl hover:scale-90">Education</a>
-            <a href="#contact"   className="px-4 py-2 rounded-xl border border-transparent bg-gradient-to-r from-indigo-500 to-blue-600 text-white font-medium shadow-sm hover:shadow-[0_0_12px_2px_#4245c4] hover:scale-90 transition-all duration-300 ease-in-out">Contact</a>
+            <a href="#technologies" className="hover:text-white hover:shadow-[0_0_15px_3px_#4245c4] transition-all duration-300  p-2 rounded-xl hover:scale-90">Technologies</a>
+            <a href="#projects" className="hover:text-white hover:shadow-[0_0_15px_3px_#4245c4] transition-all duration-300  p-2 rounded-xl hover:scale-90">Projects</a>
+            <a href="#education" className="hover:text-white hover:shadow-[0_0_15px_3px_#4245c4] transition-all duration-300  p-2 rounded-xl hover:scale-90">Education</a>
+            <a href="#contact"   className="px-4 py-2 rounded-xl bg-gradient-to-r from-indigo-500 to-blue-600 text-white font-medium shadow-sm hover:shadow-[0_0_12px_2px_#4245c4] hover:scale-90 transition-all duration-300 ease-in-out">Contact</a>
         </div>
 
         <div className='m-8 flex flex-shrink-0 items-center'> 

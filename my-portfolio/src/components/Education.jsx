@@ -9,22 +9,32 @@ function Education() {
 
       <div className="max-w-3xl mx-auto space-y-8">
 
-        <div className="p-6 rounded-lg shadow-md hover:shadow-lg transition">
-          <h3 className="text-2xl font-semibold text-blue-800">bac</h3>
-          <p className="text-stone-300">University of XYZ, Casablanca</p>
-          <p className="text-sm text-stone-400">2020 – 2023</p>
+        <div
+            className="p-6 rounded-lg shadow-md hover:shadow-lg transition">
+          <motion.h3 initial={{ opacity: 0, x: -100 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1.5 }}
+            className="text-2xl font-semibold text-blue-800">Bachelor’s Degree in Mathematical Sciences</motion.h3>
+          <motion.p initial={{ opacity: 0, x: 100 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1.5 }}
+             className="text-stone-300">Ibno Khafaja, Casablanca</motion.p>
+          <motion.p initial={{ opacity: 0, x: -100 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1.5 }}
+             className="text-sm text-stone-400">2020</motion.p>
         </div>
 
         <div className="p-6 rounded-lg shadow-md hover:shadow-lg transition">
-          <h3 className="text-2xl font-semibold text-blue-800">B.Sc. in Computer Science</h3>
-          <p className="text-stone-300">University of XYZ, Casablanca</p>
-          <p className="text-sm text-stone-400">2020 – 2023</p>
+          <motion.h3 initial={{ opacity: 0, x: 100 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1.5 }}
+            className="text-2xl font-semibold text-blue-800">Diploma in Computer Science and Mathematics</motion.h3>
+          <motion.p initial={{ opacity: 0, x: -100 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1.5 }}
+            className="text-stone-300">Hassan II University, Faculty of Sciences – Aïn Chock, Casablanca</motion.p>
+          <motion.p initial={{ opacity: 0, x: 100 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1.5 }}
+            className="text-sm text-stone-400">2020 – 2023</motion.p>
         </div>
 
         <div className="p-6 rounded-lg shadow-md hover:shadow-lg transition">
-          <h3 className="text-2xl font-semibold text-blue-800">Full-Stack Web Development Bootcamp</h3>
-          <p className="text-stone-300">Online — Udemy / Codecademy</p>
-          <p className="text-sm text-stone-400">Completed in 2024</p>
+          <motion.h3 initial={{ opacity: 0, x: -100 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1.5 }}
+            className="text-2xl font-semibold text-blue-800">Full-time Software Engineering</motion.h3>
+          <motion.p initial={{ opacity: 0, x: 100 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1.5 }}
+            className="text-stone-300">42 Network – 1337 School Khouribga</motion.p>
+          <motion.p initial={{ opacity: 0, x: -100 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1.5 }}
+            className="text-sm text-stone-400">2023 - ...</motion.p>
         </div>
 
       </div>
