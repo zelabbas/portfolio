@@ -4,6 +4,7 @@ import Technologies from "./components/Technologies";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import Education from "./components/Education";
+import ContactForm from "./utils/ContactForm";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Projects/>
           <Education />
           <Contact />
+          <ContactForm />
       </div>
     </div> 
   );
