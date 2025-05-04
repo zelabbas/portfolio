@@ -4,6 +4,8 @@ import { motion } from 'framer-motion';
 
 const ContactForm = () => {
 	const [status, setStatus] = useState('');
+	const [error, setError] = useState(false);
+	
 
 	const sendEmail = (e) => {
 		e.preventDefault();
@@ -23,7 +25,7 @@ const ContactForm = () => {
 			},
 			(error) => {
 				setStatus('Failed to send message. Please try again.');
-				console.log(error);
+				setError(true);
 			}
 		);
 
@@ -31,7 +33,8 @@ const ContactForm = () => {
 	};
 
 	return (
-		<div className="max-w-lg mx-auto p-6 bg-transparent border border-stone-800 shadow-md rounded-lg mt-0 mb-20">
+		<motion.div whileInView={{ opacity: 1, y: 0 }} initial={{ opacity: 0, y: 100 }} transition={{ duration: 1 }}
+			className="max-w-lg mx-auto p-6 bg-transparent border border-stone-800 shadow-md rounded-lg mt-0 mb-20">
 			<h2 className="text-2xl font-bold mb-4 text-center">Contact Me</h2>
 			<form onSubmit={sendEmail} className="flex flex-col gap-4">
 				<input
@@ -57,13 +60,17 @@ const ContactForm = () => {
 				></textarea>
 				<button
 					type="submit"
-					className="bg-[#4245c4] text-white py-2 px-4 rounded hover:bg-[#2e31b8] transition duration-300"
+					className="bg-[#4f6daf] text-white py-2 px-4 rounded hover:bg-[#2e31b8] transition duration-300"
 				>
 					Send
 				</button>
-				{status && <p className="text-sm text-center text-gray-600">{status}</p>}
+				{status && (
+  					<p className={`text-sm text-center ${error ? 'text-red-700' : 'text-gray-600'}`}>
+    					{status}
+  					</p>
+				)}
 			</form>
-		</div>
+		</motion.div>
 	);
 };
 
