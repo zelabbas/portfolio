@@ -1,5 +1,5 @@
 import React from 'react'
-import logo from '../assets/logo2.png'
+import logo from '../assets/logo.png'
 import { FaLinkedin } from 'react-icons/fa'
 import { FaGithub } from 'react-icons/fa'
 import { FaInstagram } from 'react-icons/fa'
@@ -15,7 +15,7 @@ function Navbar() {
             </a>
         </div>
 
-        <div className="hidden md:flex md:justify-between md:items-center space-x-6 text-white font-medium ">
+        <div className="hidden lg:relative lg:flex lg:justify-between lg:items-center space-x-6 text-white font-medium ">
             <a href="#technologies" className="text-center w-30 hover:text-white hover:shadow-[0_0_15px_3px_#4245c4] transition-all duration-300  p-2 rounded-xl hover:scale-90">Technologies</a>
             <a href="#projects" className="text-center w-30 hover:text-white hover:shadow-[0_0_15px_3px_#4245c4] transition-all duration-300  p-2 rounded-xl hover:scale-90">Projects</a>
             <a href="#education" className="text-center w-30 hover:text-white hover:shadow-[0_0_15px_3px_#4245c4] transition-all duration-300  p-2 rounded-xl hover:scale-90">Education</a>

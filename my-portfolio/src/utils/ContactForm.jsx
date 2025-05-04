@@ -30,7 +30,7 @@ const ContactForm = () => {
 	};
 
 	return (
-		<div className="max-w-lg mx-auto p-6 bg-white shadow-md rounded-lg mt-20">
+		<div className="max-w-lg mx-auto p-6 bg-white shadow-md rounded-lg mt-20 mb-20">
 			<h2 className="text-2xl font-bold mb-4 text-center">Contact Me</h2>
 			<form onSubmit={sendEmail} className="flex flex-col gap-4">
 				<input
