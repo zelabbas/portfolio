@@ -12,7 +12,7 @@ function Education() {
         <div
             className="p-6 rounded-lg shadow-md hover:shadow-lg transition">
           <motion.h3 initial={{ opacity: 0, x: -100 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1.5 }}
-            className="text-2xl font-semibold text-blue-800">Bachelor’s Degree in Mathematical Sciences</motion.h3>
+            className="text-2xl font-semibold text-blue-800">baccalaureate Degree in Mathematical Sciences</motion.h3>
           <motion.p initial={{ opacity: 0, x: 100 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1.5 }}
              className="text-stone-300">Ibno Khafaja, Casablanca</motion.p>
           <motion.p initial={{ opacity: 0, x: -100 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 1.5 }}
