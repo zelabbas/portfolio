@@ -19,8 +19,10 @@ function App() {
           <Technologies />
           <Projects/>
           <Education />
-          <Contact />
-          <ContactForm />
+          <div className="flex gap-10 items-center justify-between flex-col lg:flex-row lg:gap-0.5 mb-20">
+            <Contact />
+            <ContactForm />
+          </div>
       </div>
     </div> 
   );

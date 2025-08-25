@@ -93,7 +93,7 @@ function SectionHero() {
               </motion.p>
               <motion.a
                 variants={itemChildVariants}
-                href="/Resume1.pdf"
+                href="/Zakariaa.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 //    download
