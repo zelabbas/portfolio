@@ -1,0 +1,67 @@
+/*
+  Custom styles for the animated mobile menu overlay in Navbar
+*/
+
+.navbar-mobile-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(18, 20, 40, 0.98);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 5rem;
+  animation: navbar-slide-down 0.35s cubic-bezier(0.4,0,0.2,1);
+}
+
+@keyframes navbar-slide-down {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0.2;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.navbar-mobile-link {
+  color: #fff;
+  font-size: 1.3rem;
+  margin: 1.2rem 0;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.navbar-mobile-link:hover {
+  color: #4245c4;
+  transform: scale(1.08);
+}
+
+.navbar-mobile-socials {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.navbar-mobile-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
+  font-size: 2.2rem;
+  color: #fff;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1100;
+  transition: color 0.2s;
+}
+
+.navbar-mobile-close:hover {
+  color: #4245c4;
+}

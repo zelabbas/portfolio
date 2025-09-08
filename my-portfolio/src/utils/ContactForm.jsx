@@ -1,7 +1,8 @@
+
 import React, { useState } from 'react';
 import emailjs from 'emailjs-com';
 import { motion } from 'framer-motion';
-
+import { FaPaperPlane } from 'react-icons/fa';
 
 const ContactForm = () => {
 	const [status, setStatus] = useState("");
@@ -40,11 +41,21 @@ const ContactForm = () => {
 			whileInView={{ opacity: 1, y: 0 }}
 			initial={{ opacity: 0, y: 100 }}
 			transition={{ duration: 0.8 }}
-			className="w-full max-w-xl mx-auto p-8 bg-gradient-to-br from-[#23234d] via-[#18181b] to-[#23234d] border border-[#4245c4] shadow-2xl rounded-2xl mt-0 flex-1 relative overflow-hidden"
+			className="w-full max-w-xl mx-auto p-8 md:p-12 bg-white/10 backdrop-blur-md border border-[#4245c4]/30 shadow-2xl rounded-2xl mt-0 flex-1 relative overflow-hidden"
 		>
-			<h2 className="text-3xl font-extrabold mb-6 text-center bg-gradient-to-r from-[#fff] via-[#b3b3d1] to-[#4245c4] bg-clip-text text-transparent drop-shadow-lg">
+			{/* Decorative Blur Circles */}
+			<div className="absolute -top-10 -left-10 w-40 h-40 bg-[#4245c4]/30 rounded-full blur-2xl -z-10 animate-pulse" />
+			<div className="absolute -bottom-10 -right-10 w-56 h-56 bg-[#23234d]/40 rounded-full blur-2xl -z-10 animate-pulse" />
+
+			<motion.h2
+				whileInView={{ opacity: 1, x: 0 }}
+				initial={{ opacity: 0, x: 50 }}
+				transition={{ duration: 0.6, delay: 0.1 }}
+				className="text-3xl sm:text-4xl font-extrabold mb-8 text-center bg-gradient-to-r from-white via-[#b3b3d1] to-[#4245c4] bg-clip-text text-transparent drop-shadow-lg"
+			>
 				Contact Me
-			</h2>
+			</motion.h2>
+
 			<form onSubmit={sendEmail} className="flex flex-col gap-5">
 				<label htmlFor="name" className="sr-only">Name</label>
 				<input
@@ -53,7 +64,7 @@ const ContactForm = () => {
 					name="name"
 					placeholder="Your name"
 					required
-					className="p-3 border border-[#4245c4] bg-[#18181b] text-white focus:border-[#23234d] focus:outline-none rounded-lg text-lg placeholder:text-stone-400 transition"
+					className="p-3 border border-[#4245c4]/40 bg-white/20 text-white focus:border-[#4245c4] focus:bg-[#23234d]/40 focus:outline-none rounded-lg text-lg placeholder:text-stone-400 transition shadow-sm"
 					autoComplete="name"
 				/>
 				<label htmlFor="email" className="sr-only">Email</label>
@@ -63,7 +74,7 @@ const ContactForm = () => {
 					name="email"
 					placeholder="Your email"
 					required
-					className="p-3 border border-[#4245c4] bg-[#18181b] text-white focus:border-[#23234d] focus:outline-none rounded-lg text-lg placeholder:text-stone-400 transition"
+					className="p-3 border border-[#4245c4]/40 bg-white/20 text-white focus:border-[#4245c4] focus:bg-[#23234d]/40 focus:outline-none rounded-lg text-lg placeholder:text-stone-400 transition shadow-sm"
 					autoComplete="email"
 				/>
 				<label htmlFor="message" className="sr-only">Message</label>
@@ -72,7 +83,7 @@ const ContactForm = () => {
 					name="message"
 					placeholder="Your message"
 					required
-					className="p-3 border border-[#4245c4] bg-[#18181b] text-white focus:border-[#23234d] focus:outline-none rounded-lg text-lg placeholder:text-stone-400 transition h-36 resize-none scrollbar-thin scrollbar-thumb-[#4245c4] scrollbar-track-[#23234d]"
+					className="p-3 border border-[#4245c4]/40 bg-white/20 text-white focus:border-[#4245c4] focus:bg-[#23234d]/40 focus:outline-none rounded-lg text-lg placeholder:text-stone-400 transition h-36 resize-none shadow-sm scrollbar-thin scrollbar-thumb-[#4245c4] scrollbar-track-[#23234d]"
 				></textarea>
 				<button
 					type="submit"
@@ -86,9 +97,7 @@ const ContactForm = () => {
 							<path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
 						</svg>
 					) : (
-						<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
-							<path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25V6.75A2.25 2.25 0 0018.75 4.5H5.25A2.25 2.25 0 003 6.75v10.5A2.25 2.25 0 005.25 19.5h13.5A2.25 2.25 0 0021 17.25v-1.5M16.5 12l-4.5 4.5m0 0l-4.5-4.5m4.5 4.5V6.75" />
-						</svg>
+						<FaPaperPlane className="w-6 h-6" />
 					)}
 					{loading ? "Sending..." : "Send"}
 				</button>
@@ -103,9 +112,6 @@ const ContactForm = () => {
 					</motion.p>
 				)}
 			</form>
-			{/* Decorative Blur Circles */}
-			<div className="absolute -top-10 -left-10 w-40 h-40 bg-[#4245c4]/30 rounded-full blur-2xl -z-10 animate-pulse" />
-			<div className="absolute -bottom-10 -right-10 w-56 h-56 bg-[#23234d]/40 rounded-full blur-2xl -z-10 animate-pulse" />
 		</motion.div>
 	);
 };

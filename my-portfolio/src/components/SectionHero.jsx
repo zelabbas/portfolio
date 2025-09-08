@@ -1,8 +1,9 @@
-import React from "react";
-import ProfilePic from "../assets/profile.jpg";
-import { HERO_CONTENT } from "../../constants/constants";
+
+import { FaFileDownload } from "react-icons/fa";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import ProfilePic from '../assets/profile.jpg';
+import { HERO_CONTENT } from '../../constants/constants';
 
 const containerVariants = {
   hidden: { opacity: 0, x: -100 },
@@ -96,9 +97,9 @@ function SectionHero() {
                 href="/Zakariaa.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                //    download
-                className="text-white tracking-tighter  font-semibold py-2 px-4 rounded-full  transition duration-300 ease-in-out transform hover:bg-gradient-to-r from-[#000] to-[#4245c4] hover:scale-105 shadow-[0_0_10px_2px_#4245c4]"
+                className="inline-flex items-center gap-2 bg-gradient-to-r from-[#4245c4] to-[#23234d] text-white font-semibold py-3 px-7 rounded-full shadow-lg hover:from-[#23234d] hover:to-[#4245c4] transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-[#4245c4]/50 text-lg tracking-wide hover:scale-105"
               >
+                <FaFileDownload className="text-xl" />
                 View Resume
               </motion.a>
             </motion.div>

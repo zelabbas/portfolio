@@ -1,56 +1,130 @@
-import React from 'react'
-import logo from '../assets/logo.png'
-import { FaLinkedin } from 'react-icons/fa'
-import { FaGithub } from 'react-icons/fa'
-import { FaInstagram } from 'react-icons/fa'
+
+import React, { useState } from 'react';
+import logo from '../assets/logo.png';
+import { FaLinkedin, FaGithub, FaInstagram, FaBars, FaTimes } from 'react-icons/fa';
+import './NavbarMobile.css';
+
+const navLinks = [
+    { href: '#technologies', label: 'Technologies' },
+    { href: '#projects', label: 'Projects' },
+    { href: '#education', label: 'Education' },
+    { href: '#contact', label: 'Contact' },
+];
+
+const socials = [
+    {
+        href: 'https://www.linkedin.com/in/zelabbas',
+        icon: <FaLinkedin />, label: 'LinkedIn',
+    },
+    {
+        href: 'https://github.com/zelabbas',
+        icon: <FaGithub />, label: 'GitHub',
+    },
+    {
+        href: 'https://www.instagram.com/zelabbass',
+        icon: <FaInstagram />, label: 'Instagram',
+    },
+];
+
 function Navbar() {
-  return (
-    <div className='flex justify-between items-center py-6'>
-        <div className='flex flex-shrink-0 items-center m-8'>
-            <a className='transition-all duration-300 ease scale-100 sm:scale-150' href="/" aria-label='Home'>
-            <img
-                src={logo}
-                alt="Logo"
-                className="w-12 h-12 rounded-full object-cover mx-2 shadow-[0_0_20px_3px_#4245c4]"/>
-            </a>
-        </div>
+    const [mobileOpen, setMobileOpen] = useState(false);
 
-        <div className="hidden lg:relative lg:flex lg:justify-between lg:items-center space-x-6 text-white font-medium ">
-            <a href="#technologies" className="text-center w-30 hover:text-white hover:shadow-[0_0_15px_3px_#4245c4] transition-all duration-300  p-2 rounded-xl hover:scale-90">Technologies</a>
-            <a href="#projects" className="text-center w-30 hover:text-white hover:shadow-[0_0_15px_3px_#4245c4] transition-all duration-300  p-2 rounded-xl hover:scale-90">Projects</a>
-            <a href="#education" className="text-center w-30 hover:text-white hover:shadow-[0_0_15px_3px_#4245c4] transition-all duration-300  p-2 rounded-xl hover:scale-90">Education</a>
-            <a href="#contact"  className="text-center w-30 px-4 py-2 rounded-xl text-white font-medium shadow-sm hover:shadow-[0_0_12px_2px_#4245c4] hover:scale-90 transition-all duration-300 ease-in-out">Contact</a>
-        </div>
+    return (
+        <nav className="w-full z-50">
+            <div className="flex justify-between items-center py-6 px-4 md:px-8">
+                {/* Logo */}
+                <a className="flex items-center gap-2 group" href="/" aria-label="Home">
+                    <img
+                        src={logo}
+                        alt="Logo"
+                        className="w-14 h-14 rounded-full object-cover shadow-[0_0_20px_3px_#4245c4] group-hover:scale-110 transition-transform duration-300"
+                    />
+                </a>
 
-        <div className='m-8 flex flex-shrink-0 items-center'> 
+                {/* Desktop Nav Links */}
+                <div className="hidden lg:flex gap-8 items-center text-white font-semibold text-lg">
+                    {navLinks.map(link => (
+                        <a
+                            key={link.href}
+                            href={link.href}
+                            className="px-4 py-2 rounded-xl hover:text-[#4245c4] hover:bg-white/10 transition-all duration-200 shadow-sm hover:shadow-[0_0_12px_2px_#4245c4] hover:scale-105"
+                        >
+                            {link.label}
+                        </a>
+                    ))}
+                </div>
 
-            <a
-              className="transition-all duration-300 ease hover:scale-125"
-              href="https://www.linkedin.com/in/zelabbas"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn">
-                <FaLinkedin className="w-9 h-9 text-white mx-2 p-1 rounded-full transition-all duration-300 ease-in-out hover:shadow-[0_0_9px_2px_#4245c4]" />
-            </a>
+                {/* Desktop Socials */}
+                <div className="hidden lg:flex gap-4 items-center ml-6">
+                    {socials.map(s => (
+                        <a
+                            key={s.label}
+                            href={s.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label={s.label}
+                            className="text-white text-2xl p-2 rounded-full hover:text-[#4245c4] hover:bg-white/10 transition-all duration-200 hover:shadow-[0_0_9px_2px_#4245c4] hover:scale-110"
+                        >
+                            {s.icon}
+                        </a>
+                    ))}
+                </div>
 
+                {/* Mobile Menu Button */}
+                <button
+                    className="lg:hidden flex items-center justify-center text-white text-3xl p-2 rounded-md hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-[#4245c4] transition-all duration-200"
+                    aria-label="Open menu"
+                    onClick={() => setMobileOpen(true)}
+                >
+                    <FaBars />
+                </button>
+            </div>
 
-            <a className='transition-all duration-300 ease hover:scale-125' href="https://github.com/zelabbas"
-                target='blank'
-                rel='noopener noreferrer'
-                aria-label='GitHub'>
-                <FaGithub className='w-9 h-9 text-white mx-2 p-1 rounded-full transition-all duration-300 ease-in-out hover:shadow-[0_0_9px_2px_#4245c4]'/>
-            </a>
-
-            <a  className='transition-all duration-300 ease hover:scale-125'
-                href="https://www.instagram.com/zelabbass"
-                target='blank'
-                rel='noopener noreferrer'
-                aria-label='Instagram'>
-                <FaInstagram className='w-9 h-9 text-white mx-2 p-1 rounded-full transition-all duration-300 ease-in-out hover:shadow-[0_0_9px_2px_#4245c4]'/>
-            </a>
-        </div>
-    </div>
-  )
+            {/* Mobile Overlay Menu */}
+            {mobileOpen && (
+                <div className="navbar-mobile-overlay">
+                    <button
+                        className="navbar-mobile-close"
+                        aria-label="Close menu"
+                        onClick={() => setMobileOpen(false)}
+                    >
+                        <FaTimes />
+                    </button>
+                    <img
+                        src={logo}
+                        alt="Logo"
+                        className="w-16 h-16 rounded-full object-cover shadow-[0_0_20px_3px_#4245c4] mb-4"
+                    />
+                    <div className="flex flex-col items-center mt-2">
+                        {navLinks.map(link => (
+                            <a
+                                key={link.href}
+                                href={link.href}
+                                className="navbar-mobile-link"
+                                onClick={() => setMobileOpen(false)}
+                            >
+                                {link.label}
+                            </a>
+                        ))}
+                    </div>
+                    <div className="navbar-mobile-socials">
+                        {socials.map(s => (
+                            <a
+                                key={s.label}
+                                href={s.href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label={s.label}
+                                className="text-3xl hover:text-[#4245c4] transition-colors duration-200"
+                            >
+                                {s.icon}
+                            </a>
+                        ))}
+                    </div>
+                </div>
+            )}
+        </nav>
+    );
 }
 
 export default Navbar;
