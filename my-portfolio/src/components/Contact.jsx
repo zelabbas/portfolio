@@ -34,7 +34,7 @@ function Contact() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="flex items-center gap-4"
           >
-            <span className="text-xl text-[#4245c4] bg-white/20 rounded-full p-3 shadow-lg">
+            <span className="text-xl text-[#5e61fc] bg-white/20 rounded-full p-3 shadow-lg">
               <FaMapMarkerAlt />
             </span>
             <div>
@@ -52,7 +52,7 @@ function Contact() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="flex items-center gap-4"
           >
-            <span className="text-xl text-[#4245c4] bg-white/20 rounded-full p-3 shadow-lg">
+            <span className="text-xl text-[#5e61fc] bg-white/20 rounded-full p-3 shadow-lg">
               <FaPhoneAlt />
             </span>
             <div>
@@ -73,7 +73,7 @@ function Contact() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="flex items-center gap-4"
           >
-            <span className="text-xl text-[#4245c4] bg-white/20 rounded-full p-3 shadow-lg">
+            <span className="text-xl text-[#5e61fc] bg-white/20 rounded-full p-3 shadow-lg">
               <FaEnvelope />
             </span>
             <div>
