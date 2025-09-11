@@ -16,6 +16,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.post('/send-email', async (req, res) => {
     const { name, email, message } = req.body;
 
+    if (!name || !email || !message) {
+        return res.status(400).send('All fields are required');
+    }
+
     // Create a transporter using SMTP (or use other services)
     const transporter = nodemailer.createTransport({
         service: 'gmail', // or other email services like SendGrid
