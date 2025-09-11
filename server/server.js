@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Route to handle form submission
-app.post('/send-email', async (req, res) => {
+app.post('/api/send-email', async (req, res) => {
     const { name, email, message } = req.body;
 
     if (!name || !email || !message) {
