@@ -24,15 +24,15 @@ app.post('/send-email', async (req, res) => {
     const transporter = nodemailer.createTransport({
         service: 'gmail', // or other email services like SendGrid
         auth: {
-            user: process.env.EMAIL,  // your email address (you'll store this in .env)
-            pass: process.env.EMAIL_PASSWORD,  // your email password
+            user: process.env.EMAIL,  
+            pass: process.env.EMAIL_PASSWORD,
         },
     });
 
     // Set email options
     const mailOptions = {
                 from: email,  // sender's email
-                to: process.env.EMAIL,  // receiver's email (could be your own or anyone)
+                to: process.env.EMAIL,
                 subject: 'New message from portfolio contact form',
                 text: `Message from ${name} (${email}):\n\n${message}`,
                 html: `
@@ -54,7 +54,7 @@ app.post('/send-email', async (req, res) => {
         await transporter.sendMail(mailOptions);
         res.status(200).send('Email sent successfully');
     } catch (error) {
-        res.status(500).send('Error sending email: ' + error.message);
+        res.status(400).send('Error sending email: ' + error.message);
     }
 });
 
