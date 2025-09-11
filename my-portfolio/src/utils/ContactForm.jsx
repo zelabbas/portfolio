@@ -9,32 +9,53 @@ const ContactForm = () => {
 	const [error, setError] = useState(false);
 	const [loading, setLoading] = useState(false);
 
-	const sendEmail = (e) => {
-		e.preventDefault();
-		setStatus("");
-		setError(false);
-		setLoading(true);
+	const sendEmail = async (e) => {
+	e.preventDefault();
+	setStatus("");
+	setError(false);
+	setLoading(true);
 
-		emailjs
-			.sendForm(
-				import.meta.env.VITE_EMAILJS_SERVICE_ID,
-				import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-				e.target,
-				import.meta.env.VITE_EMAILJS_USER_ID
-			)
-			.then(
-				(result) => {
-					setStatus("Message sent successfully!");
-					setLoading(false);
-				},
-				(error) => {
-					setStatus("Failed to send message. Please try again.");
-					setError(true);
-					setLoading(false);
-				}
-			);
-		e.target.reset();
-	};
+	const name = e.target.name.value;
+	const email = e.target.email.value;
+	const message = e.target.message.value;
+
+	if (!name || !email || !message) {
+		setStatus("Please fill in all fields.");
+		setError(true);
+		setLoading(false);
+		return;
+	}
+
+	console.log("Sending email with:", { name, email, message });
+
+	try {
+		const response = await fetch('http://localhost:5000/api/send-email', {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/json',
+		},
+		body: JSON.stringify({ name, email, message }),
+	});
+
+	if (!response.ok) {
+		setError(true);
+		setStatus("Failed to send message. Please try again later.");
+		setLoading(false);
+		return;
+	}
+	} catch (err) {
+		console.error("Error sending email:", err);
+		setError(true);
+		setStatus("An error occurred. Please try again later.");
+		setLoading(false);
+		return;
+	}
+
+	setStatus("Message sent successfully!");
+	setLoading(false);
+
+	e.target.reset();
+};
 
 	return (
 		<motion.div
