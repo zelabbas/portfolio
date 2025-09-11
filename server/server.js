@@ -8,9 +8,24 @@ require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT;
 
-app.use(cors());
+// app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+// allow just 10.15.16.7 to access /api/send-email using cors
+const corsOptions = {
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like mobile apps or curl), or from 10.15.16.7
+    if (!origin || origin.startsWith('http://localhost:5173') || origin.startsWith('https://10.15.16.7')) {
+      callback(null, true);
+    } else {
+      callback(null, false);
+    }
+  }
+};
+
+app.use(cors(corsOptions));
+
 
 // Route to handle form submission
 app.post('/api/send-email', async (req, res) => {
