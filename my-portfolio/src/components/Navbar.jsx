@@ -20,10 +20,6 @@ const socials = [
         href: 'https://github.com/zelabbas',
         icon: <FaGithub />, label: 'GitHub',
     },
-    {
-        href: 'https://www.instagram.com/zelabbass',
-        icon: <FaInstagram />, label: 'Instagram',
-    },
 ];
 
 function Navbar() {
@@ -37,8 +33,7 @@ function Navbar() {
                     <img
                         src={logo}
                         alt="Logo"
-                        className="w-14 h-14 rounded-full object-cover shadow-[0_0_20px_3px_#4245c4] group-hover:scale-110 transition-transform duration-300"
-                    />
+                        className="w-20"                    />
                 </a>
 
                 {/* Desktop Nav Links */}

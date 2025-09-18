@@ -19,10 +19,6 @@ function App() {
       href: 'https://github.com/zelabbas',
       icon: <FaGithub />, label: 'GitHub',
     },
-    {
-      href: 'https://www.instagram.com/zelabbass',
-      icon: <FaInstagram />, label: 'Instagram',
-    },
   ];
 
   return (
