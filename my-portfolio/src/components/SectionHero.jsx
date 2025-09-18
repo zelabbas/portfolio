@@ -51,7 +51,7 @@ function SectionHero() {
   }, [subIndex, deleting, index]);
 
   return (
-    <div>
+    <div className="md:ml-20 bg-blue-300/10 rounded-4xl">
       <div className="pb-10  lg:mb-36">
         <div className="flex flex-wrap lg:flex-row-reverse">
           <div className="w-full lg:w-1/2">
@@ -76,7 +76,7 @@ function SectionHero() {
             >
               <motion.h1
                 variants={itemChildVariants}
-                className="pb-2 text-4xl tracking-tighter lg:text-8xl"
+                className="pb-2 text-4xl tracking-tighter lg:text-8xl font-bold"
               >
                 Zakariaa Elabbassi
               </motion.h1>
@@ -88,7 +88,7 @@ function SectionHero() {
               </motion.span>
               <motion.p
                 variants={itemChildVariants}
-                className="my-2 max-w-lg py-6 text-xl tracking-tighter leading-relaxed"
+                className="my-2 max-w-lg py-6 text-xl tracking-tighter leading-relaxed font-medium"
               >
                 {HERO_CONTENT}
               </motion.p>
