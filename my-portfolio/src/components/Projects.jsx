@@ -141,7 +141,7 @@ function Projects() {
               >
                 {/* Project Number */}
                 <motion.div 
-                  className='text-6xl font-bold text-slate-700/30 leading-none'
+                  className='text-6xl font-bold text-slate-700/90 leading-none'
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   transition={{ delay: 0.4 }}
