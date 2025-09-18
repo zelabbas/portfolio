@@ -4,6 +4,7 @@ import { TbBrandNextjs } from 'react-icons/tb'
 import { SiMongodb } from 'react-icons/si'
 import { FaNodeJs } from 'react-icons/fa'
 import { SiExpress, SiDocker } from 'react-icons/si'
+import { SiSpringboot } from 'react-icons/si'; 
 import {BiLogoPostgresql} from 'react-icons/bi'
 import {SiCplusplus} from 'react-icons/si'
 import { FaJava } from 'react-icons/fa'
@@ -26,7 +27,7 @@ const animateIcons = (duration) => ({
 
 function Technologies() {
   return (
-    <div id='technologies' className='pb-24'>
+    <div id='technologies' className='pb-24 mt-10'>
         <motion.h1 whileInView={{ opacity: 1, y: 0 }} initial={{ opacity: 0, y: -100 }} transition={{ duration: 1.5 }}
             className="text-4xl sm:text-5xl font-extrabold text-center mb-14 bg-gradient-to-r from-white via-[#b3b3d1] to-[#4245c4] bg-clip-text text-transparent drop-shadow-lg">Technologies</motion.h1>
         <motion.div whileInView={{ opacity: 1, x: 0 }} initial={{ opacity: 0, x: -100 }} transition={{ duration: 1 }}
@@ -63,6 +64,10 @@ function Technologies() {
                 <FaJava className='text-7xl text-orange-600' />
             </motion.div>
 
+            <motion.div initial="initial" animate="animate" variants={animateIcons(6)} className='p-4'>
+                <SiSpringboot className="text-7xl text-green-600" />
+            </motion.div>
+
             <motion.div initial="initial" animate="animate" variants={animateIcons(9)} className='p-4'>
                 <SiDocker className="text-7xl text-blue-500" />
             </motion.div>
@@ -74,6 +79,7 @@ function Technologies() {
             <motion.div initial="initial" animate="animate" variants={animateIcons(4.5)} className='p-4'>
                 <FaGithub className="text-7xl text-white" />
             </motion.div>
+
         </motion.div>
     </div>
   )
