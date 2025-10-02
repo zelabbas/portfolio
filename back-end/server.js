@@ -144,18 +144,12 @@ app.post('/api/send-email', async (req, res) => {
     `,
     };
 
-    console.log('Prepared email:', mailOptions);
-    console.log("the email will be sent to:", process.env.EMAIL);
-    console.log("the email will be sent from:", process.env.EMAIL_PASSWORD);
-
     // Send the email
     try {
         await transporter.sendMail(mailOptions);
         res.status(200).send('Email sent successfully');
-        console.log('Email sent successfully');
     } catch (error) {
         res.status(400).send('Error sending email: ' + error.message);
-        console.error('Error sending email:', error);
     }
 });
 
