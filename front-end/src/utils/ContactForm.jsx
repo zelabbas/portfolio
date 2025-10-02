@@ -29,7 +29,7 @@ const ContactForm = () => {
 	console.log("Sending email with:", { name, email, message });
 
 	try {
-		const response = await fetch('http://localhost:5000/api/send-email', {
+		const response = await fetch('https://portfolio-1twb.onrender.com/api/send-email', {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json',
