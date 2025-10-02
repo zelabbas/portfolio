@@ -6,24 +6,39 @@ const cors = require('cors');
 require('dotenv').config();
 
 const app = express();
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 5000;
+
+// Allowed origins can be configured via env var (comma-separated). Include your Render URL and Vercel front-end by default.
+const DEFAULT_ALLOWED = 'http://localhost:5173,https://portfolio-1twb.onrender.com,https://zelabbas.vercel.app';
+const allowedOrigins = (process.env.ALLOWED_ORIGINS || DEFAULT_ALLOWED).split(',').map(s => s.trim()).filter(Boolean);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// allow just 10.15.16.7 to access /api/send-email using cors
+// Configure CORS to accept requests from allowed origins or requests with no origin (curl/server-to-server)
 const corsOptions = {
-  origin: function (origin, callback) {
-    // Allow requests with no origin (like mobile apps or curl), or from 10.15.16.7
-    if (!origin || origin.startsWith('http://localhost:5173') || origin.startsWith('https://10.15.16.7')) {
-      callback(null, true);
-    } else {
-      callback(null, false);
+    origin: function (origin, callback) {
+        // Allow requests with no origin (like curl or server-side requests)
+        if (!origin) return callback(null, true);
+        // Support wildcard
+        if (allowedOrigins.includes('*')) return callback(null, true);
+        if (allowedOrigins.includes(origin)) return callback(null, true);
+        console.warn('Blocked CORS origin:', origin, 'allowed:', allowedOrigins);
+        // callback with false will result in CORS error
+        return callback(new Error('Not allowed by CORS'));
     }
-  }
 };
 
 app.use(cors(corsOptions));
+
+// Simple health endpoint so you can verify the service is up from Render
+app.get('/health', (req, res) => res.status(200).send('OK'));
+
+// Basic request logger for debugging deployed requests
+app.use((req, res, next) => {
+    console.log(`${new Date().toISOString()} -> ${req.method} ${req.originalUrl} from ${req.headers.origin || 'no-origin'}`);
+    next();
+});
 
 
 // Route to handle form submission
