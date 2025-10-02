@@ -1,12 +1,75 @@
-# React + Vite
+# Zakariaa Elabbassi — Portfolio (Front-end)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This repository contains the front-end for my personal portfolio website built with React and Vite. It showcases my projects, skills, education, and provides a contact form and downloadable resume.
 
-Currently, two official plugins are available:
+## Quick summary
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Built with: React + Vite
+- Styling: Tailwind CSS
+- Animations: Framer Motion
+- Purpose: Present projects, experience and a contact form that sends messages to the backend
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Run locally
+
+1. Install dependencies
+
+```bash
+cd front-end
+npm install
+```
+
+2. Start development server
+
+```bash
+npm run dev
+```
+
+Open the URL printed in the terminal (usually http://localhost:5173).
+
+3. Build for production
+
+```bash
+npm run build
+```
+
+Static files will be placed in `dist/`.
+
+---
+
+## Environment variables
+
+Create a `.env` file in the `front-end` folder and keep it out of version control. Example variables used by this project:
+
+```env
+VITE_BACKEND_URL=https://your-backend.example.com
+VITE_PORTFOLIO_KEY=your_frontend_secret_key
+```
+
+- `VITE_BACKEND_URL` — endpoint the contact form posts to (backend server).
+- `VITE_PORTFOLIO_KEY` — optional header value to identify requests from your site (for simple protection).
+
+Make sure the backend you use accepts requests from your deployed front-end domain (CORS).
+
+---
+
+## Deploy
+
+Recommended hosts: Vercel, Netlify, Cloudflare Pages. They provide automatic builds and HTTPS. When deploying:
+
+- Set environment variables in your host dashboard.
+- Configure the build command (`npm run build`) and output directory (`dist`).
+
+---
+
+## Notes & best practices
+
+- Keep `.env` files out of git. Add them to `.gitignore`.
+- Use HTTPS in production for both front-end and backend.
+- Consider storing contact messages in a database or forwarding to an email using a verified server-side mail provider.
+
+
+---
+
+_Last updated: October 2025_
