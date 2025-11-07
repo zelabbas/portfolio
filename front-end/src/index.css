@@ -15,6 +15,31 @@ html {
 :root {
   font-family: 'Inter', sans-serif;
   background: #000000;
+  
+  /* Dark theme colors */
+  --bg-primary: #000000;
+  --bg-gradient-start: #000;
+  --bg-gradient-end: #4245c4;
+  --text-primary: rgb(214 211 209); /* stone-300 */
+  --text-secondary: rgb(168 162 158); /* stone-400 */
+  --accent-color: #4245c4;
+  --accent-hover: #23234d;
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --border-color: rgba(66, 69, 196, 0.3);
+}
+
+/* Light theme */
+html:not(.dark) {
+  background: #f0f4ff;
+  --bg-primary: #ffffff;
+  --bg-gradient-start: #f0f4ff;
+  --bg-gradient-end: #a5a8ff;
+  --text-primary: rgb(41 37 36); /* stone-800 */
+  --text-secondary: rgb(87 83 78); /* stone-600 */
+  --accent-color: #4245c4;
+  --accent-hover: #6366f1;
+  --card-bg: rgba(66, 69, 196, 0.05);
+  --border-color: rgba(66, 69, 196, 0.2);
 }
 
 /* Custom scrollbar for textarea */
@@ -31,4 +56,14 @@ textarea::-webkit-scrollbar-thumb {
   background-color: #181f3f; /* Tailwind's blue-900 */
   border-radius: 6px;
   border: 2px solid #1f2937; /* Match track */
+}
+
+/* Light mode scrollbar */
+html:not(.dark) textarea::-webkit-scrollbar-track {
+  background: #e5e7eb;
+}
+
+html:not(.dark) textarea::-webkit-scrollbar-thumb {
+  background-color: #9ca3af;
+  border: 2px solid #e5e7eb;
 }

@@ -4,7 +4,7 @@ import { FaLinkedin, FaGithub, FaInstagram, FaMapMarkerAlt, FaPhoneAlt, FaEnvelo
 
 function Contact() {
   return (
-    <div id="contact" className="px-4 sm:px-6 lg:px-8">
+    <div id="contact" className="px-4 sm:px-6 lg:px-8 dark:text-secondary ">
       <motion.div
         whileInView={{ opacity: 1, y: 0 }}
         initial={{ opacity: 0, y: 50 }}
@@ -39,7 +39,7 @@ function Contact() {
             </span>
             <div>
               <p className="text-sm text-stone-400 mb-1">Location</p>
-              <p className="text-base sm:text-lg text-white font-medium">
+              <p className="text-base sm:text-lg  font-medium">
                 {CONTACT.address}
               </p>
             </div>
@@ -58,7 +58,7 @@ function Contact() {
             <div>
               <p className="text-sm text-stone-400 mb-1">Phone</p>
               <a 
-                className="text-base sm:text-lg text-white font-medium hover:text-[#4245c4] transition-colors duration-300 hover:underline decoration-[#4245c4] underline-offset-2" 
+                className="text-base sm:text-lg  font-medium hover:text-[#4245c4] transition-colors duration-300 hover:underline decoration-[#4245c4] underline-offset-2" 
                 href={`tel:${CONTACT.phoneNo}`}
               >
                 {CONTACT.phoneNo}
@@ -80,7 +80,7 @@ function Contact() {
               <p className="text-sm text-stone-400 mb-1">Email</p>
               <a
                 href={`mailto:${CONTACT.email}`}
-                className="text-base sm:text-lg text-white font-medium hover:text-[#4245c4] transition-colors duration-300 hover:underline decoration-[#4245c4] underline-offset-2 break-all sm:break-normal"
+                className="text-base sm:text-lg  font-medium hover:text-[#4245c4] transition-colors duration-300 hover:underline decoration-[#4245c4] underline-offset-2 break-all sm:break-normal"
               >
                 {CONTACT.email}
               </a>
@@ -95,12 +95,12 @@ function Contact() {
           transition={{ duration: 0.6, delay: 0.6 }}
           className="mt-10 text-center"
         >
-          <p className="text-stone-300 text-base sm:text-lg leading-relaxed mb-4">
+          <p className="text-stone-400 text-base sm:text-lg leading-relaxed mb-4">
             Ready to start a conversation? I'm always open to discussing new opportunities, creative projects, and innovative ideas.
           </p>
           <a
             href={`mailto:${CONTACT.email}`}
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-[#4245c4] to-[#23234d] text-white font-bold py-3 px-8 rounded-full shadow-lg hover:from-[#23234d] hover:to-[#4245c4] transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-[#4245c4]/50 text-lg tracking-wide"
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-[#4245c4] to-[#23234d]  font-bold py-3 px-8 rounded-full shadow-lg hover:from-[#23234d] hover:to-[#4245c4] transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-[#4245c4]/50 text-lg tracking-wide"
           >
             <FaEnvelope className="text-xl" />
             Let's connect

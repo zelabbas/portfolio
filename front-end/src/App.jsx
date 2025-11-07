@@ -7,8 +7,10 @@ import Education from "./components/Education";
 import ContactForm from "./utils/ContactForm";
 import { motion } from "framer-motion";
 import { FaLinkedin, FaGithub, FaInstagram } from 'react-icons/fa';
+import { useTheme } from "./context/ThemeContext";
 
 function App() {
+  const { theme } = useTheme();
 
   const socials = [
     {
@@ -22,9 +24,13 @@ function App() {
   ];
 
   return (
-    <div className="overflow-hidden text-stone-300 antialiased">
+    <div className="overflow-hidden dark:text-stone-300 text-stone-800 antialiased transition-colors duration-300">
       <div className="fixed inset-0 -z-10">
-        <div className="absolute inset-0 -z-10 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#4245c4_100%)]"></div>
+        <div className={`absolute inset-0 -z-10 h-full w-full items-center px-5 py-24 ${
+          theme === 'dark' 
+            ? '[background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#4245c4_100%)]' 
+            : '[background:radial-gradient(125%_125%_at_50%_10%,#f0f4ff_40%,#a5a8ff_100%)]'
+        } transition-all duration-300`}></div>
       </div>
 
       <div className="container mx-auto px-6 ">
@@ -43,10 +49,10 @@ function App() {
       <footer className="mt-20 mb-10">
         <div className="container mx-auto px-6 ">
           <div className="flex justify-between items-center py-4">
-            <p className="text-sm text-stone-400">
+            <p className="text-sm dark:text-stone-400 text-stone-600">
               Made with <span className="text-pink-500">&#10084;&#65039;</span> by <span className="font-bold text-[#4245c4]">zelabbas</span>
             </p>
-            <p className="text-sm text-stone-400">
+            <p className="text-sm dark:text-stone-400 text-stone-600">
               &copy; {new Date().getFullYear()} zelabbas. All rights reserved.
             </p>
           </div>
@@ -65,7 +71,7 @@ function App() {
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label={s.label}
-                        className="text-2xl text-white bg-[#4245c4]/80 hover:bg-[#23234d] hover:text-[#4245c4] p-3 rounded-full shadow-lg transition-all duration-200 hover:scale-110"
+                        className="text-2xl dark:text-white text-stone-800 bg-[#4245c4]/80 dark:hover:bg-[#23234d] hover:bg-[#6366f1] dark:hover:text-[#4245c4] hover:text-white p-3 rounded-full shadow-lg transition-all duration-200 hover:scale-110"
                       >
                         {s.icon}
                       </a>

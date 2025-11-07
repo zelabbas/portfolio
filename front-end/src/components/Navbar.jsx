@@ -2,6 +2,8 @@
 import React, { useState } from 'react';
 import logo from '../assets/logo.png';
 import { FaLinkedin, FaGithub, FaInstagram, FaBars, FaTimes } from 'react-icons/fa';
+import { BsSunFill, BsMoonStarsFill } from 'react-icons/bs';
+import { useTheme } from '../context/ThemeContext';
 import './NavbarMobile.css';
 
 const navLinks = [
@@ -24,6 +26,7 @@ const socials = [
 
 function Navbar() {
     const [mobileOpen, setMobileOpen] = useState(false);
+    const { theme, toggleTheme } = useTheme();
 
     return (
         <nav className="w-full z-50">
@@ -37,20 +40,29 @@ function Navbar() {
                 </a>
 
                 {/* Desktop Nav Links */}
-                <div className="hidden lg:flex gap-8 items-center text-white font-semibold text-lg">
+                <div className="hidden lg:flex gap-8 items-center dark:text-secondary  font-semibold text-lg">
                     {navLinks.map(link => (
                         <a
                             key={link.href}
                             href={link.href}
-                            className="px-4 py-2 rounded-xl hover:text-[#4245c4] hover:bg-white/10 transition-all duration-200 shadow-sm hover:shadow-[0_0_12px_2px_#4245c4] hover:scale-105"
+                            className="px-4 py-2 rounded-xl hover:text-[#4245c4] dark:hover:bg-white/10 hover:bg-[#4245c4]/10 transition-all duration-200 shadow-sm hover:shadow-[0_0_12px_2px_#4245c4] hover:scale-105"
                         >
                             {link.label}
                         </a>
                     ))}
                 </div>
 
-                {/* Desktop Socials */}
+                {/* Desktop Socials & Theme Toggle */}
                 <div className="hidden lg:flex gap-4 items-center ml-6">
+                    {/* Theme Toggle Button */}
+                    <button
+                        onClick={toggleTheme}
+                        className="dark:text-white text-stone-800 text-2xl p-2 cursor-pointer rounded-full dark:hover:bg-white/10 hover:bg-[#4245c4]/10 hover:text-[#4245c4] transition-all duration-200 hover:shadow-[0_0_9px_2px_#4245c4] hover:scale-110"
+                        aria-label="Toggle theme"
+                    >
+                        {theme === 'dark' ? <BsSunFill /> : <BsMoonStarsFill />}
+                    </button>
+                    
                     {socials.map(s => (
                         <a
                             key={s.label}
@@ -58,7 +70,7 @@ function Navbar() {
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label={s.label}
-                            className="text-white text-2xl p-2 rounded-full hover:text-[#4245c4] hover:bg-white/10 transition-all duration-200 hover:shadow-[0_0_9px_2px_#4245c4] hover:scale-110"
+                            className="dark:text-white text-stone-800 text-2xl p-2 rounded-full hover:text-[#4245c4] dark:hover:bg-white/10 hover:bg-[#4245c4]/10 transition-all duration-200 hover:shadow-[0_0_9px_2px_#4245c4] hover:scale-110"
                         >
                             {s.icon}
                         </a>
@@ -67,7 +79,7 @@ function Navbar() {
 
                 {/* Mobile Menu Button */}
                 <button
-                    className="lg:hidden flex items-center justify-center text-white text-3xl p-2 rounded-md hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-[#4245c4] transition-all duration-200"
+                    className="lg:hidden flex items-center justify-center dark:text-white text-stone-800 text-3xl p-2 rounded-md dark:hover:bg-white/10 hover:bg-[#4245c4]/10 focus:outline-none focus:ring-2 focus:ring-[#4245c4] transition-all duration-200"
                     aria-label="Open menu"
                     onClick={() => setMobileOpen(true)}
                 >
